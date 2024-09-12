@@ -1,0 +1,8 @@
+{
+	"BuildId": "19505902",
+	"Modules": 
+	{
+		"MeocapLiveLink": "UnrealEditor-MeocapLiveLink.dll",
+		"MeocapLiveLinkEditor": "UnrealEditor-MeocapLiveLinkEditor.dll"
+	}
+}

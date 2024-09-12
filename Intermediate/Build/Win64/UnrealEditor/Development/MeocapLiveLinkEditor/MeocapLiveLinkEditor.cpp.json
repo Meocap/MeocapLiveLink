@@ -1,0 +1,14 @@
+{
+    "Version": "1.1",
+    "Data": {
+        "Source": "i:\\uep\\testue50\\plugins\\meocaplivelink\\source\\meocaplivelinkeditor\\private\\meocaplivelinkeditor.cpp",
+        "ProvidedModule": "",
+        "PCH": "i:\\uep\\testue50\\intermediate\\build\\win64\\testue50editor\\development\\unrealed\\sharedpch.unrealed.shadowerrors.h.pch",
+        "Includes": [
+            "i:\\uep\\testue50\\plugins\\meocaplivelink\\intermediate\\build\\win64\\unrealeditor\\development\\meocaplivelinkeditor\\definitions.meocaplivelinkeditor.h",
+            "i:\\uep\\testue50\\plugins\\meocaplivelink\\source\\meocaplivelinkeditor\\public\\meocaplivelinkeditor.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

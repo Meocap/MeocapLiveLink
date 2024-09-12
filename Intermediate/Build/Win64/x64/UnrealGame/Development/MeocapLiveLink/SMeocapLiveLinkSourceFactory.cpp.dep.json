@@ -1,0 +1,29 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "f:\\meocaplivedemo\\meocaplivedemo\\plugins\\meocaplivelink\\source\\meocaplivelink\\private\\smeocaplivelinksourcefactory.cpp",
+        "ProvidedModule": "",
+        "PCH": "f:\\meocaplivedemo\\meocaplivedemo\\intermediate\\build\\win64\\x64\\meocaplivedemo\\development\\engine\\sharedpch.engine.project.valapi.cpp20.h.pch",
+        "Includes": [
+            "f:\\meocaplivedemo\\meocaplivedemo\\plugins\\meocaplivelink\\intermediate\\build\\win64\\x64\\unrealgame\\development\\meocaplivelink\\definitions.meocaplivelink.h",
+            "f:\\meocaplivedemo\\meocaplivedemo\\plugins\\meocaplivelink\\source\\meocaplivelink\\public\\smeocaplivelinksourcefactory.h",
+            "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.38.33130\\include\\unordered_map",
+            "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.38.33130\\include\\xhash",
+            "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.38.33130\\include\\cmath",
+            "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.38.33130\\include\\list",
+            "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.38.33130\\include\\xpolymorphic_allocator.h",
+            "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.38.33130\\include\\vector",
+            "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.38.33130\\include\\__msvc_bit_utils.hpp",
+            "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.38.33130\\include\\__msvc_sanitizer_annotate_container.hpp",
+            "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.38.33130\\include\\xbit_ops.h",
+            "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.38.33130\\include\\xstring",
+            "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.38.33130\\include\\xnode_handle.h",
+            "h:\\ue\\ue_5.4\\engine\\source\\runtime\\slate\\public\\widgets\\input\\ssegmentedcontrol.h",
+            "h:\\ue\\ue_5.4\\engine\\source\\runtime\\slatecore\\public\\styling\\segmentedcontrolstyle.h",
+            "h:\\ue\\ue_5.4\\engine\\intermediate\\build\\win64\\unrealgame\\inc\\slatecore\\uht\\segmentedcontrolstyle.generated.h",
+            "h:\\ue\\ue_5.4\\engine\\source\\runtime\\slate\\public\\widgets\\layout\\suniformgridpanel.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

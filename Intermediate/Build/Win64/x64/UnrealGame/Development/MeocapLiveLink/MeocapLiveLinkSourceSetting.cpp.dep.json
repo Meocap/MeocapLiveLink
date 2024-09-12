@@ -1,0 +1,23 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "f:\\meocaplivedemo\\meocaplivedemo\\plugins\\meocaplivelink\\source\\meocaplivelink\\private\\meocaplivelinksourcesetting.cpp",
+        "ProvidedModule": "",
+        "PCH": "f:\\meocaplivedemo\\meocaplivedemo\\intermediate\\build\\win64\\x64\\meocaplivedemo\\development\\engine\\sharedpch.engine.project.valapi.cpp20.h.pch",
+        "Includes": [
+            "f:\\meocaplivedemo\\meocaplivedemo\\plugins\\meocaplivelink\\intermediate\\build\\win64\\x64\\unrealgame\\development\\meocaplivelink\\definitions.meocaplivelink.h",
+            "f:\\meocaplivedemo\\meocaplivedemo\\plugins\\meocaplivelink\\source\\meocaplivelink\\public\\meocaplivelinksourcesetting.h",
+            "h:\\ue\\ue_5.4\\engine\\source\\runtime\\livelinkinterface\\public\\livelinksourcesettings.h",
+            "h:\\ue\\ue_5.4\\engine\\source\\runtime\\livelinkinterface\\public\\livelinksourcefactory.h",
+            "h:\\ue\\ue_5.4\\engine\\intermediate\\build\\win64\\unrealgame\\inc\\livelinkinterface\\uht\\livelinksourcefactory.generated.h",
+            "h:\\ue\\ue_5.4\\engine\\source\\runtime\\livelinkinterface\\public\\livelinktypes.h",
+            "h:\\ue\\ue_5.4\\engine\\source\\runtime\\livelinkinterface\\public\\livelinkrefskeleton.h",
+            "h:\\ue\\ue_5.4\\engine\\intermediate\\build\\win64\\unrealgame\\inc\\livelinkinterface\\uht\\livelinkrefskeleton.generated.h",
+            "h:\\ue\\ue_5.4\\engine\\intermediate\\build\\win64\\unrealgame\\inc\\livelinkinterface\\uht\\livelinktypes.generated.h",
+            "h:\\ue\\ue_5.4\\engine\\intermediate\\build\\win64\\unrealgame\\inc\\livelinkinterface\\uht\\livelinksourcesettings.generated.h",
+            "f:\\meocaplivedemo\\meocaplivedemo\\plugins\\meocaplivelink\\intermediate\\build\\win64\\unrealgame\\inc\\meocaplivelink\\uht\\meocaplivelinksourcesetting.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

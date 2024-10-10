@@ -1,0 +1,25 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "f:\\meocaplivedemo\\meocaplivedemo\\plugins\\meocaplivelink\\source\\meocaplivelink\\private\\meocapremapasset.cpp",
+        "ProvidedModule": "",
+        "PCH": "f:\\meocaplivedemo\\meocaplivedemo\\intermediate\\build\\win64\\x64\\meocaplivedemoeditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
+        "Includes": [
+            "f:\\meocaplivedemo\\meocaplivedemo\\plugins\\meocaplivelink\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\meocaplivelink\\definitions.meocaplivelink.h",
+            "f:\\meocaplivedemo\\meocaplivedemo\\plugins\\meocaplivelink\\source\\meocaplivelink\\public\\meocapremapasset.h",
+            "h:\\ue\\ue_5.4\\engine\\source\\runtime\\livelinkanimationcore\\public\\livelinkremapasset.h",
+            "h:\\ue\\ue_5.4\\engine\\source\\runtime\\livelinkanimationcore\\public\\livelinkretargetasset.h",
+            "h:\\ue\\ue_5.4\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\livelinkanimationcore\\uht\\livelinkretargetasset.generated.h",
+            "h:\\ue\\ue_5.4\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\livelinkanimationcore\\uht\\livelinkremapasset.generated.h",
+            "f:\\meocaplivedemo\\meocaplivedemo\\plugins\\meocaplivelink\\intermediate\\build\\win64\\unrealeditor\\inc\\meocaplivelink\\uht\\meocapremapasset.generated.h",
+            "h:\\ue\\ue_5.4\\engine\\source\\runtime\\livelinkinterface\\public\\roles\\livelinkanimationtypes.h",
+            "h:\\ue\\ue_5.4\\engine\\source\\runtime\\livelinkinterface\\public\\livelinktypes.h",
+            "h:\\ue\\ue_5.4\\engine\\source\\runtime\\livelinkinterface\\public\\livelinkrefskeleton.h",
+            "h:\\ue\\ue_5.4\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\livelinkinterface\\uht\\livelinkrefskeleton.generated.h",
+            "h:\\ue\\ue_5.4\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\livelinkinterface\\uht\\livelinktypes.generated.h",
+            "h:\\ue\\ue_5.4\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\livelinkinterface\\uht\\livelinkanimationtypes.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

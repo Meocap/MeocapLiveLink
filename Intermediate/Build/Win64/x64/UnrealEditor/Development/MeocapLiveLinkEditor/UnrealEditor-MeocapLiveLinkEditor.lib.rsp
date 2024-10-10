@@ -1,0 +1,15 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-MeocapLiveLinkEditor.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"F:\MeocapLiveDemo\MeocapLiveDemo\Intermediate\Build\Win64\x64\MeocapLiveDemoEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h.obj"
+"F:\MeocapLiveDemo\MeocapLiveDemo\Plugins\MeocapLiveLink\Intermediate\Build\Win64\x64\UnrealEditor\Development\MeocapLiveLinkEditor\MeocapLiveLinkEditor.init.gen.cpp.obj"
+"F:\MeocapLiveDemo\MeocapLiveDemo\Plugins\MeocapLiveLink\Intermediate\Build\Win64\x64\UnrealEditor\Development\MeocapLiveLinkEditor\MeocapPoseProviderNode.gen.cpp.obj"
+"F:\MeocapLiveDemo\MeocapLiveDemo\Plugins\MeocapLiveLink\Intermediate\Build\Win64\x64\UnrealEditor\Development\MeocapLiveLinkEditor\MeocapLiveLinkEditor.cpp.obj"
+"F:\MeocapLiveDemo\MeocapLiveDemo\Plugins\MeocapLiveLink\Intermediate\Build\Win64\x64\UnrealEditor\Development\MeocapLiveLinkEditor\MeocapPoseProviderNode.cpp.obj"
+"F:\MeocapLiveDemo\MeocapLiveDemo\Plugins\MeocapLiveLink\Intermediate\Build\Win64\x64\UnrealEditor\Development\MeocapLiveLinkEditor\Default.rc2.res"
+/OUT:"F:\MeocapLiveDemo\MeocapLiveDemo\Plugins\MeocapLiveLink\Intermediate\Build\Win64\x64\UnrealEditor\Development\MeocapLiveLinkEditor\UnrealEditor-MeocapLiveLinkEditor.lib"

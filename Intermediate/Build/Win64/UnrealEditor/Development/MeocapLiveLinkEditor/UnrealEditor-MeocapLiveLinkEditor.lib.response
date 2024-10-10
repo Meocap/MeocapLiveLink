@@ -1,0 +1,15 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-MeocapLiveLinkEditor.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"I:\UEP\TestUE50\Intermediate\Build\Win64\TestUE50Editor\Development\UnrealEd\SharedPCH.UnrealEd.ShadowErrors.h.obj"
+"I:\UEP\TestUE50\Plugins\MeocapLiveLink\Intermediate\Build\Win64\UnrealEditor\Development\MeocapLiveLinkEditor\MeocapLiveLinkEditor.cpp.obj"
+"I:\UEP\TestUE50\Plugins\MeocapLiveLink\Intermediate\Build\Win64\UnrealEditor\Development\MeocapLiveLinkEditor\MeocapPoseProviderNode.cpp.obj"
+"I:\UEP\TestUE50\Plugins\MeocapLiveLink\Intermediate\Build\Win64\UnrealEditor\Development\MeocapLiveLinkEditor\MeocapLiveLinkEditor.init.gen.cpp.obj"
+"I:\UEP\TestUE50\Plugins\MeocapLiveLink\Intermediate\Build\Win64\UnrealEditor\Development\MeocapLiveLinkEditor\MeocapPoseProviderNode.gen.cpp.obj"
+"I:\UEP\TestUE50\Plugins\MeocapLiveLink\Intermediate\Build\Win64\UnrealEditor\Development\MeocapLiveLinkEditor\Default.rc2.res"
+/OUT:"I:\UEP\TestUE50\Plugins\MeocapLiveLink\Intermediate\Build\Win64\UnrealEditor\Development\MeocapLiveLinkEditor\UnrealEditor-MeocapLiveLinkEditor.lib"

@@ -1,0 +1,14 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "f:\\meocaplivedemo\\meocaplivedemo\\plugins\\meocaplivelink\\source\\meocaplivelink\\private\\meocapskeletondata.cpp",
+        "ProvidedModule": "",
+        "PCH": "f:\\meocaplivedemo\\meocaplivedemo\\intermediate\\build\\win64\\x64\\meocaplivedemo\\development\\engine\\sharedpch.engine.project.valapi.cpp20.h.pch",
+        "Includes": [
+            "f:\\meocaplivedemo\\meocaplivedemo\\plugins\\meocaplivelink\\intermediate\\build\\win64\\x64\\unrealgame\\development\\meocaplivelink\\definitions.meocaplivelink.h",
+            "f:\\meocaplivedemo\\meocaplivedemo\\plugins\\meocaplivelink\\source\\meocaplivelink\\public\\meocapskeletondata.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

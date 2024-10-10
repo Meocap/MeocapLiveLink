@@ -1,0 +1,20 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "f:\\meocaplivedemo\\meocaplivedemo\\plugins\\meocaplivelink\\source\\meocaplivelink\\private\\meocaplivelinkframe.cpp",
+        "ProvidedModule": "",
+        "PCH": "f:\\meocaplivedemo\\meocaplivedemo\\intermediate\\build\\win64\\x64\\meocaplivedemo\\development\\engine\\sharedpch.engine.project.valapi.cpp20.h.pch",
+        "Includes": [
+            "f:\\meocaplivedemo\\meocaplivedemo\\plugins\\meocaplivelink\\intermediate\\build\\win64\\x64\\unrealgame\\development\\meocaplivelink\\definitions.meocaplivelink.h",
+            "f:\\meocaplivedemo\\meocaplivedemo\\plugins\\meocaplivelink\\source\\meocaplivelink\\public\\meocaplivelinkframe.h",
+            "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.38.33130\\include\\vector",
+            "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.38.33130\\include\\__msvc_bit_utils.hpp",
+            "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.38.33130\\include\\__msvc_sanitizer_annotate_container.hpp",
+            "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.38.33130\\include\\xpolymorphic_allocator.h",
+            "f:\\meocaplivedemo\\meocaplivedemo\\plugins\\meocaplivelink\\source\\meocaplivelink\\public\\meocap_sdk.h",
+            "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.38.33130\\include\\stdbool.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

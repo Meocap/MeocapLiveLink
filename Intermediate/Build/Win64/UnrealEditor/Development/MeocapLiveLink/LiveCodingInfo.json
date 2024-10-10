@@ -1,0 +1,27 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.MeocapLiveLink.cpp.obj": [
+			"MeocapAnimateRemap.cpp.obj",
+			"MeocapBPLibrary.cpp.obj",
+			"MeocapLiveLink.cpp.obj",
+			"MeocapLiveLinkFrame.cpp.obj",
+			"MeocapLiveLinkSource.cpp.obj",
+			"MeocapLiveLinkSourceFactory.cpp.obj",
+			"MeocapLiveLinkSourceSetting.cpp.obj",
+			"MeocapPoseProvider.cpp.obj",
+			"MeocapRemapAsset.cpp.obj",
+			"MeocapSkeletonData.cpp.obj",
+			"SMeocapLiveLinkSourceFactory.cpp.obj"
+		],
+		"Module.MeocapLiveLink.gen.cpp.obj": [
+			"MeocapAnimateRemap.gen.cpp.obj",
+			"MeocapBPLibrary.gen.cpp.obj",
+			"MeocapLiveLink.init.gen.cpp.obj",
+			"MeocapLiveLinkSourceFactory.gen.cpp.obj",
+			"MeocapLiveLinkSourceSetting.gen.cpp.obj",
+			"MeocapPoseProvider.gen.cpp.obj",
+			"MeocapRemapAsset.gen.cpp.obj"
+		]
+	}
+}

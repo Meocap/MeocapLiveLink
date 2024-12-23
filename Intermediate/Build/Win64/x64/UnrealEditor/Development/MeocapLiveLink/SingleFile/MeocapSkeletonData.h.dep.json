@@ -1,0 +1,14 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "f:\\meocapliveunreal\\testue53\\plugins\\meocaplivelink\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\meocaplivelink\\singlefile\\meocapskeletondata.h",
+        "ProvidedModule": "",
+        "Includes": [
+            "f:\\meocapliveunreal\\testue53\\plugins\\meocaplivelink\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\meocaplivelink\\definitions.meocaplivelink.h",
+            "f:\\meocapliveunreal\\testue53\\intermediate\\build\\win64\\x64\\testue53editor\\development\\unrealed\\shareddefinitions.unrealed.cpp20.h",
+            "f:\\meocapliveunreal\\testue53\\plugins\\meocaplivelink\\source\\meocaplivelink\\public\\meocapskeletondata.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

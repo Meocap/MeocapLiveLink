@@ -1,0 +1,28 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "f:\\meocapliveunreal\\testue53\\plugins\\meocaplivelink\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\meocaplivelink\\singlefile\\meocap_sdk.h",
+        "ProvidedModule": "",
+        "Includes": [
+            "f:\\meocapliveunreal\\testue53\\plugins\\meocaplivelink\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\meocaplivelink\\definitions.meocaplivelink.h",
+            "f:\\meocapliveunreal\\testue53\\intermediate\\build\\win64\\x64\\testue53editor\\development\\unrealed\\shareddefinitions.unrealed.cpp20.h",
+            "f:\\meocapliveunreal\\testue53\\plugins\\meocaplivelink\\source\\meocaplivelink\\public\\meocap_sdk.h",
+            "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.36.32532\\include\\stdarg.h",
+            "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.36.32532\\include\\vcruntime.h",
+            "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.36.32532\\include\\sal.h",
+            "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.36.32532\\include\\concurrencysal.h",
+            "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.36.32532\\include\\vadefs.h",
+            "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.36.32532\\include\\stdbool.h",
+            "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.36.32532\\include\\stdint.h",
+            "c:\\program files (x86)\\windows kits\\10\\include\\10.0.18362.0\\ucrt\\stdlib.h",
+            "c:\\program files (x86)\\windows kits\\10\\include\\10.0.18362.0\\ucrt\\corecrt.h",
+            "c:\\program files (x86)\\windows kits\\10\\include\\10.0.18362.0\\ucrt\\corecrt_malloc.h",
+            "c:\\program files (x86)\\windows kits\\10\\include\\10.0.18362.0\\ucrt\\corecrt_search.h",
+            "c:\\program files (x86)\\windows kits\\10\\include\\10.0.18362.0\\ucrt\\stddef.h",
+            "c:\\program files (x86)\\windows kits\\10\\include\\10.0.18362.0\\ucrt\\corecrt_wstdlib.h",
+            "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.36.32532\\include\\limits.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

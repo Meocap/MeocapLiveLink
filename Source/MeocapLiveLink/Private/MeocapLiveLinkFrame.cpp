@@ -33,7 +33,7 @@ MeocapFrameHandler::MeocapFrameHandler()
     InitializeSkeletonChannels();
 }
 
-void MeocapFrameHandler::ProcessFrameData(meoframe* frame)
+void MeocapFrameHandler::ProcessFrameData(MeoFrame* frame)
 {
     int index = 0;
     for (auto i : MEO_BONEMAP) {

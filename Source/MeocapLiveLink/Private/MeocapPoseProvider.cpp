@@ -45,28 +45,20 @@ void FMeocapPoseProvider::EvaluateSkeletalControl_AnyThread(FComponentSpacePoseC
 		};
 
 		mHasInit = true;
-		
+		UE_LOG(LogMeocapLiveLink,Warning,TEXT("Checking Source with [SubjectName: %s]"),*mLiveLinkSubjectName.Name.ToString());
 		auto source = FMeocapLiveLinkSource::GetInstanceBySubjectName(mLiveLinkSubjectName);
 		if (source.has_value()&&source.value().IsValid()&&!mHasDefiSkel) {
-			skelbase base{};
+			SkelBase base{};
 			for (int i : BONE_RANGE_24) {
 				auto t = tPoseTranforms[i].value_or(FTransform()).GetLocation();
-				skeljoint joint;
+				SkelJoint joint{};
 				joint.pos[0] = t.X / 100.0;
 				joint.pos[1] = t.Z / 100.0;
 				joint.pos[2] = t.Y / 100.0;
 				base.bones[i] = joint;
 			}
 			base.floor_y = -base.bones->pos[1];
-			auto ret = source.value().Get()->SetSkel(base);
-			if (ret == 0) {
-				mHasDefiSkel = true;
-			}
-			else {
-				UE_LOG(LogMeocapLiveLink, Warning, TEXT("Warning: Could not set skel to meocap client: %d"),ret);
-			}
-
-
+			source.value().Get()->SetSkel(base);
 		}
 		else {
 			UE_LOG(LogMeocapLiveLink, Warning, TEXT("Warning: The source is None [no set or no valid]"));

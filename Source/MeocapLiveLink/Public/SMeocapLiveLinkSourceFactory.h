@@ -15,7 +15,7 @@ const FString DEFAULT_SKELETON_NAME = "MeoLink";
 class SMeocapLiveLinkSourceFactory : public SCompoundWidget
 {
 public:
-    DECLARE_DELEGATE_ThreeParams(FOnCreateClicked, uint16, uint16, FName);
+    DECLARE_DELEGATE_TwoParams(FOnCreateClicked, uint16, FName);
 
     SLATE_BEGIN_ARGS(SMeocapLiveLinkSourceFactory) {}
         SLATE_EVENT(FOnCreateClicked, OnCreateClicked)
@@ -35,7 +35,6 @@ private:
     static std::unordered_map<uint16, FName> mPortToSubjectNameMap;
 
     TWeakPtr<SEditableTextBox> mInputPortField;
-    TWeakPtr<SEditableTextBox> mCommandPortField;
     TWeakPtr<SEditableTextBox> mSubjectNameField;
 
     FReply OnCreateClicked();
@@ -44,6 +43,5 @@ private:
 
     FString GetSuggestedSkeletonName();
     FString GetSuggestedPort();
-    FString GetSuggestedCommandPort();
 
 };

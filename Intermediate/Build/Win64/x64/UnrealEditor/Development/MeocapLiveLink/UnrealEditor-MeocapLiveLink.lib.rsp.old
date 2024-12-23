@@ -1,0 +1,12 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-MeocapLiveLink.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"F:\MeocapLiveUnreal\TestUE53\Intermediate\Build\Win64\x64\TestUE53Editor\Development\UnrealEd\SharedPCH.UnrealEd.Cpp20.h.obj"
+"F:\MeocapLiveUnreal\TestUE53\Plugins\MeocapLiveLink\Intermediate\Build\Win64\x64\UnrealEditor\Development\MeocapLiveLink\Module.MeocapLiveLink.cpp.obj"
+"F:\MeocapLiveUnreal\TestUE53\Plugins\MeocapLiveLink\Intermediate\Build\Win64\x64\UnrealEditor\Development\MeocapLiveLink\Default.rc2.res"
+/OUT:"F:\MeocapLiveUnreal\TestUE53\Plugins\MeocapLiveLink\Intermediate\Build\Win64\x64\UnrealEditor\Development\MeocapLiveLink\UnrealEditor-MeocapLiveLink.lib"

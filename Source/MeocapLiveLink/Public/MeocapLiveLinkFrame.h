@@ -18,11 +18,13 @@ struct MeocapFrameMetaData {
 struct MeocapFrameHandler {
 public:
 	MeocapFrameHandler();
-	void ProcessFrameData(meoframe* frame);
+	void ProcessFrameData(MeoFrame* frame);
 	const MeocapBoneData& GetBoneInfoByIndex(int index);
 	const MeocapFrameMetaData GetFrameMetaData();
 	const int SKELETON_NUM_BONES = 25;
 	static const int MEO_BONEMAP[25];
+	bool mNeedUpdateSkel = false;
+	SkelBase mSkel;
 private:
 	// Unvariable joint number at this point.
 
@@ -30,6 +32,8 @@ private:
 	const double BONE_SCALE = 100.0;
 	std::vector<MeocapBoneData>	mBoneDataArray;
 	MeocapFrameMetaData mFrameMetaData;
+
 	void InitializeSkeletonChannels();
+	
 
 };

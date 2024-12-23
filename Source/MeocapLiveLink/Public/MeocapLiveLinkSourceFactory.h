@@ -22,5 +22,5 @@ public:
 private:
 
 	// Creates the Meocap LiveLinkSource
-	void OnCreateClicked(uint16 inputPort,uint16 commandPort, FName subjectName, FOnLiveLinkSourceCreated onLiveLinkSourceCreated) const;
+	void OnCreateClicked(uint16 inputPort, FName subjectName, FOnLiveLinkSourceCreated onLiveLinkSourceCreated) const;
 };

@@ -18,7 +18,7 @@
 
 class MEOCAPLIVELINK_API FMeocapLiveLinkSource: public ILiveLinkSource,public FRunnable {
 public:
-	FMeocapLiveLinkSource(uint16 port, uint16 command_port, FName subjectName);
+	FMeocapLiveLinkSource(uint16 port, FName subjectName);
 
 	virtual ~FMeocapLiveLinkSource();
 
@@ -32,7 +32,7 @@ public:
 	virtual FText GetSourceMachineName() const;
 	virtual FText GetSourceStatus() const;
 
-	int SetSkel(skelbase base);
+	int SetSkel(SkelBase base);
 
 	//static void SetInstance(TSharedPtr<FMeocapLiveLinkSource> NewInstance) { instance = NewInstance; };
 
@@ -58,6 +58,10 @@ public:
 
 	static void AddInstanceWithSubjectName(FName name, TSharedPtr<FMeocapLiveLinkSource> source) {
 		IntanceNamedMap.Add(name, source);
+	};
+
+	static void RemoveInstanceWithSubjectName(FName name) {
+		IntanceNamedMap.Remove(name);
 	};
 	
 
@@ -86,13 +90,14 @@ private:
 	FString mThreadName;
 	MeocapFrameHandler mDataHandler;
 
-	uint64_t mSocket{0};
-	uint64_t mCommandSocket{ 0 };
+	const CSocket *mSocket { NULL };
+	const CSocket *mCommandSocket{ 0 };
 
 	FName mSubjectName; // This instance's LiveLink subject
 
 	std::atomic_bool mRunning;
 	std::atomic_bool mIsThreadFinished;
+
 
 	FRunnableThread* mThread{ nullptr };
 

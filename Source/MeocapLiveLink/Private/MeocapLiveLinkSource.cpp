@@ -19,7 +19,7 @@ const FString DEFAULT_THREAD_NAME = "MeocapTCPThread";
 TMap<FName, TSharedPtr<FMeocapLiveLinkSource>> FMeocapLiveLinkSource::IntanceNamedMap;
 
 
-FMeocapLiveLinkSource::FMeocapLiveLinkSource(uint16 port,uint16 command_port,FName subjectName):
+FMeocapLiveLinkSource::FMeocapLiveLinkSource(uint16 port,FName subjectName):
 	mRunning(false),
 	mThread(nullptr),
 	mSocket(0),
@@ -27,10 +27,9 @@ FMeocapLiveLinkSource::FMeocapLiveLinkSource(uint16 port,uint16 command_port,FNa
 	mClient(nullptr),
 	mSubjectName(subjectName),
 	mServerAddressPort(port),
-	mCommandServerAddressPort(command_port),
 	mIsThreadFinished(true)
 {
-	UE_LOG(LogMeocapLiveLink, Warning, TEXT("InitMeocapLiveLinkSource Port: %d ,Command Port: %d"), port ,command_port);
+	UE_LOG(LogMeocapLiveLink, Warning, TEXT("InitMeocapLiveLinkSource Port: %d"), port );
 	SMeocapLiveLinkSourceFactory::AddSubject(port, mSubjectName);
 	UE_LOG(LogMeocapLiveLink, Warning, TEXT("Creating Meocap LiveLink Source!!!"));
 }
@@ -40,7 +39,6 @@ FMeocapLiveLinkSource::~FMeocapLiveLinkSource() {
 	while (!bIsReadyToShutdown) {
 		bIsReadyToShutdown = ShutdownThreadAndSocket();
 	}
-	SMeocapLiveLinkSourceFactory::RemoveSubject(mServerAddressPort);
 }
 
 void FMeocapLiveLinkSource::ReceiveClient(ILiveLinkClient* InClient, FGuid InSourceGuid)
@@ -79,26 +77,10 @@ FText FMeocapLiveLinkSource::GetSourceStatus() const
 	return sourceStatus;
 }
 
-int FMeocapLiveLinkSource::SetSkel(skelbase base)
+int FMeocapLiveLinkSource::SetSkel(SkelBase base)
 {
-	if (mCommandSocket != 0) {
-		auto ret = meocap_command_set_skel(mCommandSocket, &base);
-		if (ret != 2) {
-			return ret;
-		}
-		UE_LOG(LogMeocapLiveLink, Warning, TEXT("Try to reconnecting command Server"));
-		mCommandSocket = meocap_connect_command_server_char(127, 0, 0, 1, mCommandServerAddressPort);
-		if (mCommandSocket != 0) {
-			return meocap_command_set_skel(mCommandSocket, &base);
-		}
-	}
-	else {
-		mCommandSocket = meocap_connect_command_server_char(127, 0, 0, 1, mCommandServerAddressPort);
-		if (mCommandSocket != 0) {
-			return meocap_command_set_skel(mCommandSocket, &base);
-		}
-	}
-	return -1;
+	mDataHandler.mNeedUpdateSkel = true;
+	return 0;
 }
 
 
@@ -130,28 +112,25 @@ void FMeocapLiveLinkSource::HandleClearSubject(const FName subjectName)
 		UE_LOG(LogMeocapLiveLink, Warning, TEXT("Client was null!!!!!!"));
 		return;
 	}
-
+	SMeocapLiveLinkSourceFactory::RemoveSubject(mServerAddressPort);
 	mClient->RemoveSubject_AnyThread(FLiveLinkSubjectKey(mSourceGuid, subjectName));
 }
 
 
 bool FMeocapLiveLinkSource::InitSocket()
 {
-	if (mSocket == 0) {
+	if (mSocket == NULL) {
 		mRunning = false;
 		UE_LOG(LogMeocapLiveLink, Warning, TEXT("Connecting to Data Server"));
-		mSocket = meocap_connect_server_char(127, 0, 0, 1, mServerAddressPort);
-		if (true) {
-			mCommandSocket = meocap_connect_command_server_char(127, 0, 0, 1, mCommandServerAddressPort);
-			if (mCommandSocket == 0) {
-				UE_LOG(LogMeocapLiveLink, Error, TEXT("Unable to Command Server"));
-			}
-		}
-		if (mSocket == 0) {
-			UE_LOG(LogMeocapLiveLink, Error, TEXT("Unable to Data Server"));
+		Addr addr{};
+		addr.a = 127; addr.b = 0; addr.c = 0; addr.d = 1; addr.port = mServerAddressPort;
+		auto ret = meocap_bind_listening_addr(&addr);
+		mSocket = ret.socket;
+		UE_LOG(LogMeocapLiveLink, Warning, TEXT("Connected Data Server With [Error Type: %d],[Info: %u],[Socket: %u]"),ret.err.ty,ret.err.info,ret.socket);
+		
+		if (mSocket == NULL) {
 			return false;
 		}
-		UE_LOG(LogMeocapLiveLink, Warning, TEXT("Connected to Data Server"));
 	}
 	StartThread();
 	return true;
@@ -206,19 +185,25 @@ uint32 FMeocapLiveLinkSource::Run()
 	while (mRunning) {
 		FDateTime time = FDateTime::UtcNow();
 		double secs = GetUnixTimestampDecimal(time);
-		if (mSocket == 0)
+		if (mSocket == NULL)
 			continue;
-		meoframe frame{};
+		MeoFrame frame{};
 		//UE_LOG(LogMeocapLiveLink, Warning, TEXT("Try to recv one frame..."));
 		auto ret = meocap_recv_frame(mSocket, &frame);
 		if (!mRunning)
 			break;
-		if (ret != 0) {
+		if (ret.ty != 0) {
+			//UE_LOG(LogMeocapLiveLink, Warning, TEXT("Cannot recv frame... [ErrorType: %d],[Info: %u]"),ret.ty,ret.info);
 			continue;
 		}
 		if (!bIsDefineSkel) {
 			DefineNewMeocapSubject();
 			bIsDefineSkel = true;
+		}
+		if (mDataHandler.mNeedUpdateSkel) {
+			auto ret_skel = meocap_command_set_skel(mSocket, &frame.src, &mDataHandler.mSkel);
+			UE_LOG(LogMeocapLiveLink, Warning, TEXT("Set Skel to MeocapClient. [ErrorType: %d],[Info: %u]"), ret_skel.ty, ret_skel.info);
+			mDataHandler.mNeedUpdateSkel = false;
 		}
 		mDataHandler.ProcessFrameData(&frame);
 		FLiveLinkFrameDataStruct frameDataStruct = FLiveLinkFrameDataStruct(FLiveLinkAnimationFrameData::StaticStruct());
@@ -252,10 +237,11 @@ bool FMeocapLiveLinkSource::ShutdownThreadAndSocket()
 		delete mThread;
 		mThread = nullptr;
 	}
-	if (mSocket != 0)
+
+	if (mSocket != NULL)
 	{
 		meocap_clean_up(mSocket);
-		mSocket = 0;
+		mSocket = NULL;
 	}
 
 	return true;

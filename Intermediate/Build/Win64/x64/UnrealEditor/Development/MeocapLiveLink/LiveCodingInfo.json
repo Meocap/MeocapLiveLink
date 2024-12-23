@@ -19,7 +19,8 @@
 			"MeocapPoseProvider.cpp.obj",
 			"MeocapRemapAsset.cpp.obj",
 			"MeocapSkeletonData.cpp.obj",
-			"SMeocapLiveLinkSourceFactory.cpp.obj"
+			"SMeocapLiveLinkSourceFactory.cpp.obj",
+			"meocap_sdk.cpp.obj"
 		]
 	}
 }

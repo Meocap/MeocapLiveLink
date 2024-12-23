@@ -29,8 +29,7 @@ void FMeocapLiveLinkModule::StartupModule()
 	uintptr_t DllHandleAsInt = reinterpret_cast<uintptr_t>(mMeocapSDKHandle);
 	UE_LOG(LogMeocapLiveLink, Warning, TEXT("Loaded MeocapSDK with path: %s ,Handle: 0x%016llX"), *LibraryPath,DllHandleAsInt);
 
-	int32_t SelfTest = meocap_hello(100);
-	UE_LOG(LogMeocapLiveLink, Warning, TEXT("Run MeocapSDK self-test: %d"), SelfTest-100);
+
 
 }
 

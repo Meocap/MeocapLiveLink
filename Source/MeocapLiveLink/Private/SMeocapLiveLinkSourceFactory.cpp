@@ -46,28 +46,6 @@ void SMeocapLiveLinkSourceFactory::Construct(const FArguments& Args)
                         ]
                 ]
 
-                + SVerticalBox::Slot()
-                .Padding(5)
-                .FillHeight(1.1)
-                [
-                    SNew(SHorizontalBox)
-                        + SHorizontalBox::Slot()
-                        .HAlign(HAlign_Left)
-                        .FillWidth(0.6f)
-                        .VAlign(VAlign_Center)
-                        [
-                            SNew(STextBlock)
-                                .Text(LOCTEXT("CommandPort", "Command Port Number"))
-                        ]
-                        + SHorizontalBox::Slot()
-                        .HAlign(HAlign_Right)
-                        .VAlign(VAlign_Center)
-                        .FillWidth(0.5f)
-                        [
-                            SAssignNew(mCommandPortField, SEditableTextBox)
-                                .Text(FText::FromString(GetSuggestedCommandPort()))
-                        ]
-                ]
 
                 + SVerticalBox::Slot()
                 .FillHeight(1.4)
@@ -116,11 +94,10 @@ void SMeocapLiveLinkSourceFactory::Construct(const FArguments& Args)
 
 FReply SMeocapLiveLinkSourceFactory::OnCreateClicked()
 {
-    TSharedPtr<SEditableTextBox> commandPortEditableTextPin = mCommandPortField.Pin();
     TSharedPtr<SEditableTextBox> portEditableTextPin = mInputPortField.Pin();
     TSharedPtr<SEditableTextBox> subjectNameTextPin = mSubjectNameField.Pin();
 
-    if (portEditableTextPin && subjectNameTextPin && commandPortEditableTextPin)
+    if (portEditableTextPin && subjectNameTextPin)
     {
         FText invalidPortTitle = LOCTEXT("errorTitleInvalidPort", "Error: Invalid Port");
 
@@ -158,29 +135,6 @@ FReply SMeocapLiveLinkSourceFactory::OnCreateClicked()
             return FReply::Unhandled();
         }
 
-        FString commandPortString = commandPortEditableTextPin->GetText().ToString();
-        if (!commandPortString.IsNumeric())
-        {
-#ifdef USE_DEPRECATED_DEBUGF
-            FMessageDialog::Debugf(LOCTEXT("errorInvalidPort", "Invalid port.\nPlease enter a port number between 0 and 65535"), &invalidPortTitle);
-#else
-            FMessageDialog::Debugf(LOCTEXT("errorInvalidPort", "Invalid port.\nPlease enter a port number between 0 and 65535"), invalidPortTitle);
-#endif
-            return FReply::Unhandled();
-        }
-
-        uint64 commandPortOverflowCheck = FCString::Atoi(*commandPortString);
-        if (commandPortOverflowCheck > 65535)
-        {
-#ifdef USE_DEPRECATED_DEBUGF
-            FMessageDialog::Debugf(LOCTEXT("errorInvalidPort", "Invalid port.\nPlease enter a port number between 0 and 65535"), &invalidPortTitle);
-#else
-            FMessageDialog::Debugf(LOCTEXT("errorInvalidPort", "Invalid port.\nPlease enter a port number between 0 and 65535"), invalidPortTitle);
-#endif
-            return FReply::Unhandled();
-        }
-
-        uint16 commandPort = uint16(commandPortOverflowCheck);
 
         FString subjectNameStr = subjectNameTextPin->GetText().ToString();
         if (subjectNameStr.IsEmpty())
@@ -197,7 +151,7 @@ FReply SMeocapLiveLinkSourceFactory::OnCreateClicked()
 
         FName subjectName = FName(*subjectNameStr);
 
-        CreateClicked.ExecuteIfBound(port,commandPort, subjectName);
+        CreateClicked.ExecuteIfBound(port, subjectName);
         return FReply::Handled();
     }
 
@@ -231,19 +185,6 @@ FString SMeocapLiveLinkSourceFactory::GetSuggestedSkeletonName()
 FString SMeocapLiveLinkSourceFactory::GetSuggestedPort()
 {
     int port = DEFAULT_MEOCAP_PORT;
-
-    int count = mPortToSubjectNameMap.size();
-    if (count)
-    {
-        port += count;
-    }
-
-    return FString::FromInt(port);
-}
-
-FString SMeocapLiveLinkSourceFactory::GetSuggestedCommandPort()
-{
-    int port = DEFAULT_MEOCAP_PORT + 1000;
 
     int count = mPortToSubjectNameMap.size();
     if (count)

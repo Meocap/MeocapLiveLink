@@ -12,5 +12,5 @@ class MEOCAPLIVELINK_API UMeocapBPLibrary : public UBlueprintFunctionLibrary
 	GENERATED_BODY()
 
 	UFUNCTION(BlueprintCallable, Category = "MeocapLiveLink", meta = (Keywords = "livelink"))
-	static void CreateMeocapSource(FLiveLinkSourceHandle& handle, const int inputPort = 14999, const int commandPort = 15999, const FString& subjectName = "MeoLink");
+	static void CreateMeocapSource(FLiveLinkSourceHandle& handle, const int inputPort = 14999, const FString& subjectName = "MeoLink");
 };

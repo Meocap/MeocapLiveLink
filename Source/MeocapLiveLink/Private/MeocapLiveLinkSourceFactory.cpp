@@ -23,7 +23,6 @@ TSharedPtr<SWidget> UMeocapLiveLinkSourceFactory::BuildCreationPanel(FOnLiveLink
 TSharedPtr<ILiveLinkSource> UMeocapLiveLinkSourceFactory::CreateSource(const FString& ConnectionString) const
 {
     uint64 port = DEFAULT_MEOCAP_PORT;
-    uint64 commandPort = DEFAULT_MEOCAP_PORT + 100;
     FName subjectName = FName(*DEFAULT_SKELETON_NAME);
 
     TArray<FString, FDefaultAllocator> Parts;
@@ -34,16 +33,16 @@ TSharedPtr<ILiveLinkSource> UMeocapLiveLinkSourceFactory::CreateSource(const FSt
         subjectName = FName(*Parts[1]);
     }
 
-    auto source = MakeShared<FMeocapLiveLinkSource>(port, commandPort, subjectName);
+    auto source = MakeShared<FMeocapLiveLinkSource>(port, subjectName);
     FMeocapLiveLinkSource::AddInstanceWithSubjectName(subjectName,source);
     return source;
 }
 
-void UMeocapLiveLinkSourceFactory::OnCreateClicked(uint16 inputPort,uint16 commandPort, FName subjectName, FOnLiveLinkSourceCreated onLiveLinkSourceCreated) const
+void UMeocapLiveLinkSourceFactory::OnCreateClicked(uint16 inputPort, FName subjectName, FOnLiveLinkSourceCreated onLiveLinkSourceCreated) const
 {
 
-    FString connectionString = FString::Format(TEXT("tcp://{0}:\n{1} command:{2}"), { inputPort, subjectName.ToString(), commandPort});
-    auto source = MakeShared<FMeocapLiveLinkSource>(inputPort, commandPort, subjectName);
+    FString connectionString = FString::Format(TEXT("tcp://{0}:\n{1}"), { inputPort, subjectName.ToString()});
+    auto source = MakeShared<FMeocapLiveLinkSource>(inputPort, subjectName);
     FMeocapLiveLinkSource::AddInstanceWithSubjectName(subjectName, source);
     onLiveLinkSourceCreated.ExecuteIfBound(source, connectionString);
 }

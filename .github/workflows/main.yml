@@ -19,7 +19,7 @@ jobs:
       - name: Read version from latest.json
         id: read_version
         run: |
-          VERSION=$(jq -r '.version' ./latest.json)
+          VERSION=$(jq -r '.version' ./docs/latest.json)
           echo "VERSION=$VERSION" >> $GITHUB_ENV
 
       - name: Create ZIP file with version
@@ -45,4 +45,4 @@ jobs:
 
           # Upload files to OSS
           ossutil cp -f -u "MeocapLiveLink-${{ env.VERSION }}.zip" oss://$ALIYUN_BUCKET/plugins/unreal/ --endpoint $ALIYUN_OSS_ENDPOINT
-          ossutil cp -f -u "latest.json" oss://$ALIYUN_BUCKET/plugins/unreal/ --endpoint $ALIYUN_OSS_ENDPOINT
+          ossutil cp -f -u -r ./docs/ oss://$ALIYUN_BUCKET/plugins/unreal/docs/ --endpoint $ALIYUN_OSS_ENDPOINT

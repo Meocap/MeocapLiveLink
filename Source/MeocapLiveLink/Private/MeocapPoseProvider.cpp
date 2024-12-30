@@ -129,10 +129,12 @@ void FMeocapPoseProvider::EvaluateSkeletalControl_AnyThread(FComponentSpacePoseC
 
 		if (i == 0) {
 			FVector trans = meocapPos[24];
+			auto scale = refTransform.GetScale3D();
 			//UE_LOG(LogMeocapLiveLink, Warning, TEXT("MeocapPos[24] is (%f,%f,%f)"),trans.X,trans.Y,trans.Z);
 			FVector origin = tPoseTranforms[0].value_or(FTransform()).GetLocation();
-			refTransform.SetLocation(origin + FVector(trans[0],trans[2],-trans[1]));
+			refTransform.SetLocation(origin + FVector(trans[0]*scale.X, trans[2]*scale.Y, -trans[1]*scale.Z));
 		}
+
 
 		meshBases.SetComponentSpaceTransform(bid, refTransform);
 	}

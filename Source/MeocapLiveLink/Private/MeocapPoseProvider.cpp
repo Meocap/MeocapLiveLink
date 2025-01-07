@@ -26,7 +26,7 @@ void FMeocapPoseProvider::EvaluateSkeletalControl_AnyThread(FComponentSpacePoseC
 	USkeletalMeshComponent* skelComp = Output.AnimInstanceProxy->GetSkelMeshComponent();
 	FCSPose<FCompactPose>& meshBases = Output.Pose;
 	check(OutBoneTransforms.Num() == 0);
-
+	const int BONE_PARA[24] = { -1, 0, 0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 9, 9, 12, 13, 14, 16, 17, 18, 19, 20, 21 };
 	if (!mLivelinkClient) {
 		return;
 	}
@@ -47,18 +47,33 @@ void FMeocapPoseProvider::EvaluateSkeletalControl_AnyThread(FComponentSpacePoseC
 		mHasInit = true;
 		UE_LOG(LogMeocapLiveLink,Warning,TEXT("Checking Source with [SubjectName: %s]"),*mLiveLinkSubjectName.Name.ToString());
 		auto source = FMeocapLiveLinkSource::GetInstanceBySubjectName(mLiveLinkSubjectName);
+
 		if (source.has_value()&&source.value().IsValid()&&!mHasDefiSkel) {
+			UE_LOG(LogMeocapLiveLink, Warning, TEXT("Try to Get Skel position"));
 			SkelBase base{};
 			for (int i : BONE_RANGE_24) {
-				auto t = tPoseTranforms[i].value_or(FTransform()).GetLocation();
 				SkelJoint joint{};
-				joint.pos[0] = t.X / 100.0;
-				joint.pos[1] = t.Z / 100.0;
-				joint.pos[2] = t.Y / 100.0;
+				if (tPoseTranforms[i].has_value()) {
+					auto t = tPoseTranforms[i].value().GetTranslation();
+					joint.pos[0] = t.X / 100.0;
+					joint.pos[1] = t.Z / 100.0;
+					joint.pos[2] = t.Y / 100.0;
+					UE_LOG(LogMeocapLiveLink, Warning, TEXT("Get Bone %d Pos %f,%f,%f"),i,t.X,t.Y,t.Z);
+				}
+				else {
+					if (i != 0) {
+						joint.pos[0] = base.bones[BONE_PARA[i]].pos[0] + 1e-9f;
+						joint.pos[1] = base.bones[BONE_PARA[i]].pos[1] + 1e-9f;
+						joint.pos[2] = base.bones[BONE_PARA[i]].pos[2] + 1e-9f;
+					}
+				}
 				base.bones[i] = joint;
 			}
-			base.floor_y = -base.bones->pos[1];
-			source.value().Get()->SetSkel(base);
+			base.floor_y = -base.bones[0].pos[1];
+			if (abs(base.floor_y) > 0.1) {
+				source.value().Get()->SetSkel(base);
+				mHasDefiSkel = true;
+			}
 		}
 		else {
 			UE_LOG(LogMeocapLiveLink, Warning, TEXT("Warning: The source is None [no set or no valid]"));
@@ -88,7 +103,6 @@ void FMeocapPoseProvider::EvaluateSkeletalControl_AnyThread(FComponentSpacePoseC
 	TArray<FQuat> meocapGlbRots;
 	TArray<FVector> meocapPos;
 
-	const int BONE_PARA[24] = { -1, 0, 0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 9, 9, 12, 13, 14, 16, 17, 18, 19, 20, 21 };
 
 
 	for (int i : BONE_RANGE_25) {

@@ -79,6 +79,7 @@ FText FMeocapLiveLinkSource::GetSourceStatus() const
 
 int FMeocapLiveLinkSource::SetSkel(SkelBase base)
 {
+	mDataHandler.mSkel = base;
 	mDataHandler.mNeedUpdateSkel = true;
 	return 0;
 }

@@ -5,7 +5,7 @@
 #include "Widgets/Text/STextBlock.h"
 #include "Widgets/input/SSegmentedControl.h"
 #include "Widgets/input/SButton.h"
-
+#include "MeocapLog.h"
 
 #define LOCTEXT_NAMESPACE "MeocapLiveLinkModule"
 
@@ -160,6 +160,8 @@ FReply SMeocapLiveLinkSourceFactory::OnCreateClicked()
 
 void SMeocapLiveLinkSourceFactory::RemoveSubject(uint16 inputPort)
 {
+    UE_LOG(LogMeocapLiveLink, Warning, TEXT("Remove Subject ...."));
+
     mPortToSubjectNameMap.erase(inputPort);
 }
 

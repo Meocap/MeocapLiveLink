@@ -222,6 +222,7 @@ uint32 FMeocapLiveLinkSource::Run()
 
 bool FMeocapLiveLinkSource::ShutdownThreadAndSocket()
 {
+	SMeocapLiveLinkSourceFactory::RemoveSubject(this->mServerAddressPort);
 	UE_LOG(LogMeocapLiveLink, Warning, TEXT("Shutdown all...."));
 	if (mRunning)
 	{
@@ -244,7 +245,6 @@ bool FMeocapLiveLinkSource::ShutdownThreadAndSocket()
 		meocap_clean_up(mSocket);
 		mSocket = NULL;
 	}
-
 	return true;
 }
 

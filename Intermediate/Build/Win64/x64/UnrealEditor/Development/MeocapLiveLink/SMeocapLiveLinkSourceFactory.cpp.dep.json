@@ -21,7 +21,8 @@
             "h:\\ue\\ue_5.4\\engine\\source\\runtime\\slate\\public\\widgets\\input\\ssegmentedcontrol.h",
             "h:\\ue\\ue_5.4\\engine\\source\\runtime\\slatecore\\public\\styling\\segmentedcontrolstyle.h",
             "h:\\ue\\ue_5.4\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\slatecore\\uht\\segmentedcontrolstyle.generated.h",
-            "h:\\ue\\ue_5.4\\engine\\source\\runtime\\slate\\public\\widgets\\layout\\suniformgridpanel.h"
+            "h:\\ue\\ue_5.4\\engine\\source\\runtime\\slate\\public\\widgets\\layout\\suniformgridpanel.h",
+            "f:\\meocaplivedemo\\meocaplivedemo\\plugins\\meocaplivelink\\source\\meocaplivelink\\private\\meocaplog.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []
